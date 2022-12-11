@@ -44,7 +44,7 @@ def train(args):
     # cross validation
     SCORER_DICT = {"MAE": MAE_scorer, "MAPE": MAPE_scorer, "RMSE": RMSE_scorer}
     print(
-        f"Cross-validation scores ({args.val_metric} - {args.k_fold} fold(s)) in trainset: ",
+        f"Cross-validation scores ({args.val_metric} - {args.k_fold} fold(s)) on trainset: ",
         cross_val_score(
             model.model,
             X_train,
