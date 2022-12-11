@@ -36,3 +36,26 @@ Thu Duc City), including temperature, humidity precipitation, pressure, and othe
 - Protocol: Weather data in 2021 will be used as a test set to give comparison between models. Remain data will be used as a train + validation set. For train and validation, we used K-Fold Cross Validation (with k = 5).
 
 ### 5. Re-implement instruction:
+#### End-to-end run:
+```
+sh scripts/train_and_test.sh
+```
+
+#### Add your model:
+
+First, create your own config file in `configs/` folder, using below structure:
+
+```
+name: <Your model name>
+args:
+  <Your model configuration>
+  ...
+```
+View the example `LinearSGD.yml` for better understanding.
+
+Next, create your model class in `models/` folder. View example to create it.
+
+Note: 
+- Your model name must be matched with the class name you created in `models`
+- Your class name must not be the same as scikit-learn model name, this can cause unlimited recursion when initializing.
+- ...
