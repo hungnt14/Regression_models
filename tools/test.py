@@ -26,7 +26,7 @@ def get_parser():
     parser.add_argument(
         "--test_metric",
         default="MAPE",
-        help="validation metric",
+        help="test metric",
     )
     return parser.parse_args()
 
