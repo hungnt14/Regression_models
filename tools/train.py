@@ -1,4 +1,5 @@
 import sys
+import os
 
 sys.path.append(".")
 
@@ -55,6 +56,11 @@ def train(args):
     )
     # model saving
     print(f"Model was saved in {args.weight_path}")
+
+    print(args.weight_path)
+    if (not os.path.exists("weights")):
+        os.mkdir("weights")
+
     model.save_model(args.weight_path)
 
 
