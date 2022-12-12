@@ -1,0 +1,5 @@
+name: "DNN"
+args:
+  epochs: 5
+  batch_size: 64
+  verbose: 1
