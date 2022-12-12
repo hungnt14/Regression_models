@@ -1,0 +1,4 @@
+name: "DNN"
+args:
+  batch_size: 20,
+  max_epoch: 100
