@@ -1,7 +1,6 @@
-if [[ "$OSTYPE" =~ ^msys ]]; then
-    py -3 tools/train.py --val_metric RMSE
-    py -3 tools/test.py --test_metric RMSE
-else
-    python3 tools/train.py --val_metric RMSE
-    python3 tools/test.py --test_metric RMSE
-fi
+python3 -W ignore tools/train.py --val_metric MAPE --weight_path weights/LinearSGD_MAPE.pkl
+python3 -W ignore tools/test.py --test_metric MAPE --weight_path weights/LinearSGD_MAPE.pkl
+python3 -W ignore tools/train.py --val_metric RMSE --weight_path weights/LinearSGD_RMSE.pkl
+python3 -W ignore tools/test.py --test_metric RMSE --weight_path weights/LinearSGD_RMSE.pkl
+python3 -W ignore tools/train.py --val_metric MAE --weight_path weights/LinearSGD_MAE.pkl
+python3 -W ignore tools/test.py --test_metric MAE --weight_path weights/LinearSGD_MAE.pkl
