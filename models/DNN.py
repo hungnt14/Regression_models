@@ -1,37 +1,39 @@
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 import keras
-import tensorflow as tf
+from keras.models import load_model
+from scikeras.wrappers import KerasRegressor
 
 from models.base_model import BaseModel
 import pickle as pkl
 
 
+def create_model():
+    model = Sequential()
+
+    model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
+    model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
+    model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
+
+    model.add(Dense(units=1, kernel_initializer='normal', activation="linear"))
+
+    model.compile(loss='mean_absolute_error', optimizer='adam')
+
+    return model
+
 class DNN(BaseModel):
     def __init__(self, opt):
-        self.opt = opt
-        print(opt)
-
-        model = Sequential()
-
-        model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
-        model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
-        model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
-
-        model.add(Dense(units=1, kernel_initializer='normal', activation="linear"))
-
-        model.compile(loss='mean_absolute_error')
-
-        self.model = model
+        # self.opt = opt
+        self.model = keras.wrappers.scikit_learn.KerasRegressor(build_fn=create_model, **opt)
 
     def fit(self, X, y):
-        self.model.fit(X, y, epochs=100, batch_size=32)
+        self.model.fit(X, y)
 
     def save_model(self, weight_path):
-        pkl.dump(self.model, open(weight_path, "wb"))
+        self.model.model.save(weight_path)
 
     def load_model(self, weight_path):
-        self.model = pkl.load(open(weight_path, "rb"))
+        self.model.model = load_model(weight_path)
 
     def predict(self, X):
         return self.model.predict(X)

@@ -1,4 +1,5 @@
 name: "DNN"
 args:
-  batch_size: 20,
-  max_epoch: 100
+  epochs: 5
+  batch_size: 64
+  verbose: 1
