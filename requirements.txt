@@ -1,0 +1,5 @@
+pandas
+scikit-learn
+scikeras
+tensorflow
+tensorflow-macos
