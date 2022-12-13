@@ -5,6 +5,7 @@ sys.path.append(".")
 from models.LinearSGD import *
 from models.DNN import *
 
+
 def get_instance(config, **kwargs):
     assert "name" in config
     config.setdefault("args", {})

@@ -36,6 +36,11 @@ Thu Duc City), including temperature, humidity precipitation, pressure, and othe
 - Protocol: Weather data in 2021 will be used as a test set to give comparison between models. Remain data will be used as a train + validation set. For train and validation, we used K-Fold Cross Validation (with k = 5).
 
 ### 5. Re-implement instruction:
+#### Install essential libs:
+```
+pip3 install -r requirements.txt
+```
+Note: if you want to run smoothly on MacOS, try to replace `tensorflow` by `tensorflow-macos`.
 #### End-to-end run:
 ```
 sh scripts/train_and_test.sh

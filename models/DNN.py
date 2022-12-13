@@ -11,20 +11,23 @@ import pickle as pkl
 def create_model():
     model = Sequential()
 
-    model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
-    model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
-    model.add(Dense(units=256, kernel_initializer='normal', activation="relu"))
+    model.add(Dense(units=256, kernel_initializer="normal", activation="relu"))
+    model.add(Dense(units=256, kernel_initializer="normal", activation="relu"))
+    model.add(Dense(units=256, kernel_initializer="normal", activation="relu"))
 
-    model.add(Dense(units=1, kernel_initializer='normal', activation="linear"))
+    model.add(Dense(units=1, kernel_initializer="normal", activation="linear"))
 
-    model.compile(loss='mean_absolute_error', optimizer='adam')
+    model.compile(loss="mean_absolute_error", optimizer="adam")
 
     return model
+
 
 class DNN(BaseModel):
     def __init__(self, opt):
         # self.opt = opt
-        self.model = keras.wrappers.scikit_learn.KerasRegressor(build_fn=create_model, **opt)
+        self.model = keras.wrappers.scikit_learn.KerasRegressor(
+            build_fn=create_model, **opt
+        )
 
     def fit(self, X, y):
         self.model.fit(X, y)

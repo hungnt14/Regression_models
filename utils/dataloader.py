@@ -4,7 +4,6 @@ from sklearn.preprocessing import MinMaxScaler
 
 def preprocess_data(df):
     """return the preprocessed dataframe"""
-    """ currently not implemented any preprocess method"""
     scaler = MinMaxScaler()
     df = pd.DataFrame(scaler.fit_transform(df))
     return df
