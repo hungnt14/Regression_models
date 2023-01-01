@@ -4,6 +4,7 @@ sys.path.append(".")
 
 from models.LinearSGD import *
 from models.DNN import *
+from models.DecisionTree import *
 
 
 def get_instance(config, **kwargs):
