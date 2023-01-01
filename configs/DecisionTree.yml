@@ -1,0 +1,5 @@
+name: "DecisionTree"
+args:
+  random_state: 0
+  min_samples_leaf: 4
+  min_samples_split: 4
