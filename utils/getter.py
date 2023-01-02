@@ -5,7 +5,7 @@ sys.path.append(".")
 from models.LinearSGD import *
 from models.DNN import *
 from models.DecisionTree import *
-
+from models.RidgeRegression import *
 
 def get_instance(config, **kwargs):
     assert "name" in config
