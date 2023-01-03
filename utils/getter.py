@@ -6,6 +6,7 @@ from models.LinearSGD import *
 from models.DNN import *
 from models.DecisionTree import *
 from models.RidgeRegression import *
+from models.LightGBM import *
 
 def get_instance(config, **kwargs):
     assert "name" in config

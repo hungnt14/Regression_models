@@ -1,0 +1,17 @@
+name: "LightGBM"
+args:
+  max_iter: 2000
+  task: 'train'
+  boosting_type: 'gbdt'
+  objective: 'regression'
+  metric: ['l1','l2']
+  learning_rate: 0.005
+  feature_fraction: 0.9
+  bagging_fraction: 0.7
+  bagging_freq: 10
+  verbose: 0
+  max_depth: 8
+  num_leaves: 128
+  max_bin: 512
+  num_iterations: 100000
+
