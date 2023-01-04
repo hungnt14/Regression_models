@@ -20,9 +20,7 @@ def get_parser():
     parser.add_argument(
         "--config_path", default="configs/LinearSGD.yml", help="config file path"
     )
-    parser.add_argument(
-        "--preprocess_data", default=1, help="preprocess data or not"
-    )
+    parser.add_argument("--preprocess_data", default=1, help="preprocess data or not")
     parser.add_argument("--k_fold", default=5, help="number of k fold")
     parser.add_argument(
         "--weight_path",
@@ -39,7 +37,9 @@ def get_parser():
 
 def train(args):
     # load data
-    X_train, y_train, X_test, y_test = load_data(args.data_path, preprocess=args.preprocess_data)
+    X_train, y_train, X_test, y_test = load_data(
+        args.data_path, preprocess=args.preprocess_data
+    )
     # load model
     model_configs = yaml.load(open(args.config_path, "r"), Loader=yaml.Loader)
     model = get_instance(model_configs)

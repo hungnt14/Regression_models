@@ -7,6 +7,7 @@ from models.DNN import *
 from models.DecisionTree import *
 from models.RidgeRegression import *
 
+
 def get_instance(config, **kwargs):
     assert "name" in config
     config.setdefault("args", {})
