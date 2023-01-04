@@ -7,6 +7,7 @@ from models.DNN import *
 from models.DecisionTree import *
 from models.RidgeRegression import *
 from models.LassoRegression import *
+from models.GradientBoosting import *
 
 
 def get_instance(config, **kwargs):
