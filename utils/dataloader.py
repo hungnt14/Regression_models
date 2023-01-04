@@ -9,7 +9,7 @@ def preprocess_data(df):
     return df
 
 
-def load_data(data_path):
+def load_data(data_path, preprocess=False):
     """return Pandas dataframes of X, y from the original data"""
     df = pd.read_csv(data_path)
     feature_columns = [
@@ -20,8 +20,12 @@ def load_data(data_path):
         "Wind_Speed",
         "Wind_Direction",
     ]
-    X_train = preprocess_data(df[df["YEAR"] < 2021][feature_columns]).values
+    if preprocess:
+        X_train = preprocess_data(df[df["YEAR"] < 2021][feature_columns]).values
+        X_test = preprocess_data(df[df["YEAR"] == 2021][feature_columns]).values
+    else:
+        X_train = df[df["YEAR"] < 2021][feature_columns].values
+        X_test = df[df["YEAR"] == 2021][feature_columns].values
     y_train = df[df["YEAR"] < 2021]["Temperature"].values
-    X_test = preprocess_data(df[df["YEAR"] == 2021][feature_columns]).values
     y_test = df[df["YEAR"] == 2021]["Temperature"].values
     return X_train, y_train, X_test, y_test
