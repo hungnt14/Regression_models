@@ -1,0 +1,3 @@
+name: "LassoRegression"
+args:
+  max_iter: 2000
