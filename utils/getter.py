@@ -6,6 +6,7 @@ from models.LinearSGD import *
 from models.DNN import *
 from models.DecisionTree import *
 from models.RidgeRegression import *
+from models.LassoRegression import *
 
 
 def get_instance(config, **kwargs):
