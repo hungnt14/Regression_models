@@ -1,0 +1,5 @@
+name: "LightGBM"
+args:
+  boosting_type: gbdt
+  objective: regression
+  metric: rmse
