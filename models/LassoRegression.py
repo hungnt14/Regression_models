@@ -1,11 +1,10 @@
 from models.base_model import BaseModel
-from sklearn.linear_model import Ridge
 import pickle as pkl
 
 
-class RidgeRegression(BaseModel):
+class LassoRegression(BaseModel):
     def __init__(self, opt):
-        self.model = Ridge(**opt)
+        self.model = linear_model.Lasso(**opt)
 
     def fit(self, X, y):
         self.model.fit(X, y)

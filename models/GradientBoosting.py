@@ -1,11 +1,12 @@
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import cross_val_score
 from models.base_model import BaseModel
-from sklearn.linear_model import Ridge
 import pickle as pkl
 
 
-class RidgeRegression(BaseModel):
+class GradientBoosting(BaseModel):
     def __init__(self, opt):
-        self.model = Ridge(**opt)
+        self.model = GradientBoostingRegressor(**opt)
 
     def fit(self, X, y):
         self.model.fit(X, y)
