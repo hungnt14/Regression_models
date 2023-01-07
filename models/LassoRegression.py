@@ -1,4 +1,5 @@
 from models.base_model import BaseModel
+from sklearn import linear_model
 import pickle as pkl
 
 
