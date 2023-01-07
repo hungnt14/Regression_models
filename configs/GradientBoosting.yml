@@ -1,2 +1,6 @@
 name: "GradientBoosting"
 args:
+    learning_rate: 0.1
+    loss: 'huber'
+    max_depth: 4
+    n_estimators: 100
