@@ -9,6 +9,7 @@ from models.RidgeRegression import *
 from models.LassoRegression import *
 from models.GradientBoosting import *
 from models.LightGBM import *
+from models.Bayesian import *
 
 def get_instance(config, **kwargs):
     assert "name" in config
