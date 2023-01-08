@@ -1,5 +1,7 @@
 name: "LightGBM"
 args:
-  boosting_type: gbdt
-  objective: regression
-  metric: rmse
+  n_estimators: 700
+  learning_rate: 0.017
+  max_depth: 7
+  num_leaves: 14
+  min_data_in_leaf: 20
