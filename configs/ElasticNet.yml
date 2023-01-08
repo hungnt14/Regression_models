@@ -1,3 +1,5 @@
 name: "ElasticNet"
 args:
-  max_iter: 200
+  alpha: 0.05
+  l1_ratio: 0.2
+  # max_iter: 2000
