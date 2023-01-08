@@ -11,6 +11,7 @@ from utils.dataloader import load_data
 from utils.getter import get_instance
 from utils.evaluate import MAE_scorer, MAPE_scorer, RMSE_scorer
 
+import time
 
 def get_parser():
     parser = argparse.ArgumentParser()
@@ -43,9 +44,12 @@ def train(args):
     # load model
     model_configs = yaml.load(open(args.config_path, "r"), Loader=yaml.Loader)
     model = get_instance(model_configs)
-    # train
+    
+    start = time.time()
     model.fit(X_train, y_train)
-    # cross validation
+    end = time.time()
+
+    print('Time train', end-start)
     SCORER_DICT = {"MAE": MAE_scorer, "MAPE": MAPE_scorer, "RMSE": RMSE_scorer}
     print(
         f"Cross-validation scores ({args.val_metric} - {args.k_fold} fold(s)) on trainset: ",

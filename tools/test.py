@@ -9,6 +9,7 @@ from utils.dataloader import load_data
 from utils.getter import get_instance
 from utils.evaluate import MAE_scorer, MAPE_scorer, RMSE_scorer
 
+import time
 
 def get_parser():
     parser = argparse.ArgumentParser()
@@ -43,10 +44,16 @@ def test(args):
     model.load_model(args.weight_path)
     # test
     SCORER_DICT = {"MAE": MAE_scorer, "MAPE": MAPE_scorer, "RMSE": RMSE_scorer}
+    start = time.time()
+  
     print(
         f"Test score ({args.test_metric}) on testset: ",
         SCORER_DICT[args.test_metric](model, X_test, y_test),
     )
+
+    end = time.time()
+
+    print('Time test', end-start)
 
 
 if __name__ == "__main__":
