@@ -1,2 +1,8 @@
 name: "Bayesian"
 args:
+  n_iter: 500
+  tol: 0.001
+  alpha_1: 0.0000001
+  alpha_2: 0.0000001
+  lambda_1: 0.0000001
+  lambda_2: 0.0000001
