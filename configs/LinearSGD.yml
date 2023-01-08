@@ -1,3 +1,5 @@
 name: "LinearSGD"
 args:
   max_iter: 2000
+  loss: "squared_error"
+  penalty: "L2"
